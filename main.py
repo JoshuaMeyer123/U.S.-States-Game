@@ -27,10 +27,6 @@ while len(guessed_states) < 50:
         guessed_states.append(answer_state)
 
 # Create a csv file that lists the states that were not guessed
-remaining_states = []
-for state in all_states:
-    if state not in guessed_states:
-        remaining_states.append(state)
+remaining_states = [state for state in all_states if state not in guessed_states]
 new_data = pandas.DataFrame(remaining_states)
 new_data.to_csv("states_to_practise.csv")
-
